@@ -21,6 +21,7 @@ namespace movie_app_task_backend.Extensions
             services.AddScoped<IScreeningsService, ScreeningsService>();
             services.AddScoped<IActorsService, ActorsService>();
             services.AddScoped<IAuthService, AuthService>();
+            services.AddScoped<IAdminsService, AdminsService>();
         }
     }
 }
