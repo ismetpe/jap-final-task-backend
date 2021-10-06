@@ -16,6 +16,7 @@ namespace movie_app_task_backend
             CreateMap<Rating, GetRatingDto>();
             CreateMap<Actor, GetActorDto>();
             CreateMap<Screening, GetScreeningDto>();
+            CreateMap<PurchasedTicket, GetPurchasedTicketsDto>();
         }
     }
 }

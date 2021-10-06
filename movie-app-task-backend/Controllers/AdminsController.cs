@@ -11,7 +11,7 @@ namespace movie_app_task_backend.Controllers
 {
     [ApiController]
     [Route("api/admin")]
-    public class AdminsController : Controller
+    public class AdminsController : ControllerBase
     {
         private readonly IAdminsService _adminsService;
         public AdminsController(IAdminsService adminsService)
