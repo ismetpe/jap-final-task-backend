@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Database;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -39,24 +40,24 @@ namespace movie_app_task_backend
         {
             services.AddDbContext<DataContext>(options => options.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
-
-
             services.AddAutoMapper(typeof(Startup));
-  
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+
+            AddSwager.AddSwaggerConfig(ref services);
+            AddScoped.AddScopedConfig(ref services);
+
+                services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.ASCII.GetBytes(_configuration.GetSection("AppSettings:Token").Value)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
+                            .GetBytes(_configuration.GetSection("AppSettings:Token").Value)),
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
                 });
-            AddSwager.AddSwaggerConfig(ref services);
-            AddScoped.AddScopedConfig(ref services);
-         
+           
             services.AddCors();
         }
 

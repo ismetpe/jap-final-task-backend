@@ -1,4 +1,5 @@
 ﻿using Core.Interfaces;
+using Core.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
 using System;
@@ -19,9 +20,14 @@ namespace movie_app_task_backend.Controllers
             _screeningsService = screeningsService;
         }
         [HttpPost("buy_ticket")]
-        public async Task<ActionResult<int>> BuyTicket(int UserID, int ScreeningID, int NumberOfTickets, DateTime DateOfBuying)
+        public async Task<ActionResult<int>> BuyTicket([FromBody] AddPurchasedTicketDto req)
         {
-            return Ok(await _screeningsService.BuyTickets( UserID,  ScreeningID,  NumberOfTickets,  DateOfBuying));
+            return Ok(await _screeningsService.BuyTickets(req));
+        }
+        [HttpGet("screenings_by_movie")]
+        public async Task<ActionResult<List<GetScreeningDto>>> GetScreeningsbyMovie(int id)
+        {
+            return Ok(await _screeningsService.GetScreeningsByMovie(id));
         }
     }
 }
