@@ -19,13 +19,11 @@ namespace Database.Services
     {
         private readonly DataContext _context;
         private readonly IConfiguration _configuration;
-
         public AuthService(DataContext context, IConfiguration configuration)
         {
             _configuration = configuration;
             _context = context;
         }
-
 
         public async Task<ServiceResponse<string>> Login(string username, string password)
         {

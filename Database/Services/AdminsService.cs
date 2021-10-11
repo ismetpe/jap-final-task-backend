@@ -12,10 +12,7 @@ namespace Database.Services
 {
     public class AdminsService : IAdminsService
     {
-
         private readonly DataContext _context;
-     
-
 
         public AdminsService(DataContext context)
         {
@@ -46,8 +43,8 @@ namespace Database.Services
             {
                 Date = screening.Date,
                 Place = screening.Place,
-                Number_of_seats = screening.Number_of_seats,
-                Number_of_tickets = screening.Number_of_tickets,
+                Number_of_seats = screening.NumberOfSeats,
+                Number_of_tickets = screening.NumberOfTickets,
                 Tickets = screening.Tickets,
                 Time = screening.Time,
                 MediaId = screening.MediaId
@@ -75,12 +72,10 @@ namespace Database.Services
             {
                 m.ImgUrl = movie.img_url;
             }
-            if (movie.Release_year != null && movie.Release_year != "")
+            if (movie.ReleaseYear != null && movie.ReleaseYear != "")
             {
-                m.ReleaseYear = movie.Release_year;
+                m.ReleaseYear = movie.ReleaseYear;
             }
-
-
             await _context.SaveChangesAsync();
 
             return _context.Screenings.Max(x => x.Id);

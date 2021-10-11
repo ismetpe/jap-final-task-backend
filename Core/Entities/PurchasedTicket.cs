@@ -11,7 +11,5 @@ namespace Core.Entities
         public int ScreeningId { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }
-
-       
     }
 }

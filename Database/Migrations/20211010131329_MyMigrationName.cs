@@ -401,7 +401,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Ratings",
-                columns: new[] { "Id", "MediaId", "Rating_value" },
+                columns: new[] { "Id", "MediaId", "RatingValue" },
                 values: new object[,]
                 {
                     { 1, 1, 4.6f },
@@ -432,7 +432,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 23, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4136), 1, 100, 100, "Sarajevo", "11:00" },
@@ -457,7 +457,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 55, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4219), 85, 100, 100, "Sarajevo", "11:00" },
@@ -506,7 +506,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 5, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4039), 1, 100, 100, "Sarajevo", "10:00" },

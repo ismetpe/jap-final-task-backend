@@ -15,7 +15,6 @@ namespace Database.Services
         private readonly DataContext _context;
         private IHttpContextAccessor _httpContextAccessor;
 
-
         public RatingsService(DataContext context)
         {
             _context = context;

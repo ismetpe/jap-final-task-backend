@@ -26,7 +26,5 @@ namespace Database.Services
         {
             return await _context.Actors.Select(x => _mapper.Map<GetActorDto>(x)).ToListAsync();
         }
-
-
     }
 }

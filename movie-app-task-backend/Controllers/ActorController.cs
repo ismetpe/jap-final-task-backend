@@ -23,6 +23,5 @@ namespace movie_app_task_backend.Controllers
         public async Task<ActionResult<IEnumerable<Actor>>> GetActors(){
                return Ok(await _actorsService.GetActors());
         }
-
     }
 }

@@ -13,7 +13,6 @@ namespace Database.Services
 {
     public class ScreeningsService : IScreeningsService
     {
-
         private readonly IMapper _mapper;
         private readonly DataContext _context;
 
@@ -36,10 +35,8 @@ namespace Database.Services
 
             var screening = ListOfScreenings.Find(x => x.Id == request.ScreeningID);
 
-
-
             int result = DateTime.Compare(request.DateOfBuying, screening.Date);
-            Console.WriteLine(screening.Date + " " + request.DateOfBuying + " " + result);
+
             if (result < 0 || result == 0)
             {
                 throw new Exception("Screening date must be in future");
@@ -66,7 +63,6 @@ namespace Database.Services
 
             return id;
         }
-
 
        public async Task<List<GetScreeningDto>> GetScreeningsByMovie(int id)
         {

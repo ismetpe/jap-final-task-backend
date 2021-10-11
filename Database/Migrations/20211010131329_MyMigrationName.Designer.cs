@@ -1423,7 +1423,7 @@ namespace Database.Migrations
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
 
-                    b.Property<float>("Rating_value")
+                    b.Property<float>("RatingValue")
                         .HasColumnType("real");
 
                     b.HasKey("Id");
@@ -1592,10 +1592,10 @@ namespace Database.Migrations
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Number_of_seats")
+                    b.Property<int>("NumberOfSeats")
                         .HasColumnType("int");
 
-                    b.Property<int>("Number_of_tickets")
+                    b.Property<int>("NumberOfTickets")
                         .HasColumnType("int");
 
                     b.Property<string>("Place")

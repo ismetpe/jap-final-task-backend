@@ -13,7 +13,6 @@ namespace Database.Services
     public class ReportsService : IReportsService
     {
         private readonly DataContext _context;
-
         public ReportsService(DataContext context)
         {
             _context = context;
@@ -40,7 +39,5 @@ namespace Database.Services
 
             return result;
         }
-
-
     }
 }

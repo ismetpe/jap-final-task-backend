@@ -18,7 +18,6 @@ namespace movie_app_task_backend.Controllers
             _usersService = usersService;
         }
 
-
         [HttpGet("bought_tickets")]
         public async Task<ActionResult<IEnumerable<GetPurchasedTicketsDto>>> GetUserTickets(int id)
         {

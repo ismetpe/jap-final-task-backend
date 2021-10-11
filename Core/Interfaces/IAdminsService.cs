@@ -10,11 +10,7 @@ namespace Core.Interfaces
     public interface IAdminsService
     {
         Task<int> AddMovieAsync(AddMovieDto movie);
-
         Task<int> EditMovieAsync(EditMovieDto movie, int id);
-
         Task<int> AddScreeningsAsync(AddScreeningDto screening);
-
-
     }
 }
