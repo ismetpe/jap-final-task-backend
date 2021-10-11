@@ -85,6 +85,7 @@ namespace movie_app_task_backend
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

@@ -35,13 +35,6 @@ namespace Database.Services
 
             var screening = ListOfScreenings.Find(x => x.Id == request.ScreeningID);
 
-            int result = DateTime.Compare(request.DateOfBuying, screening.Date);
-
-            if (result < 0 || result == 0)
-            {
-                throw new Exception("Screening date must be in future");
-            }
-
             if (request.NumberOfTickets > 10)
             {
                 throw new Exception("You can't buy more than 10 tickets");

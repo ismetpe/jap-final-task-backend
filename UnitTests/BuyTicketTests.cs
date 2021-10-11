@@ -153,28 +153,6 @@ namespace UnitTests
         }
 
 
-        [Test, Order(3)]
-        public async Task Buy_Tickets_With_Data_After_Screening_Test()
-        {
-
-
-            Assert.That(BuyTicketsAfterScreeningDate, Throws.Exception);
-        }
-
-
-
-        public async Task<int> BuyTicketsAfterScreeningDate()
-        {
-            var request = new AddPurchasedTicketDto
-            {
-                UserID = 1,
-                ScreeningID = 2,
-                NumberOfTickets = 7,
-                DateOfBuying = System.DateTime.Now.AddDays(1)
-            };
-
-            var result = await screeningsService.BuyTickets(request);
-            return result;
-        }
+  
     }
 }
