@@ -79,7 +79,7 @@ namespace Database.Services
 
 
         }
-        public async Task<List<GetMediaDto>> GetMedia(RequestDto request)
+        public async Task<List<GetMediaDto>> GetMedia(GetMediaRequestDto request)
         {
 
             if (!string.IsNullOrEmpty(request.SearchTerm))

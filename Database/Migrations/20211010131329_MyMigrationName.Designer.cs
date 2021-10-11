@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20211004121734_MyMigrationName")]
+    [Migration("20211010131329_MyMigrationName")]
     partial class MyMigrationName
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -1614,7 +1614,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 1,
-                            Date = new DateTime(2022, 1, 16, 19, 57, 33, 746, DateTimeKind.Local).AddTicks(8635),
+                            Date = new DateTime(2022, 1, 22, 20, 53, 28, 805, DateTimeKind.Local).AddTicks(5974),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1624,7 +1624,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 2,
-                            Date = new DateTime(2021, 10, 14, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8907),
+                            Date = new DateTime(2021, 10, 20, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4007),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1634,7 +1634,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 3,
-                            Date = new DateTime(2021, 10, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8940),
+                            Date = new DateTime(2021, 10, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4032),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1644,7 +1644,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 4,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8945),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4036),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1654,7 +1654,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 5,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8948),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4039),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1664,7 +1664,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 6,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8956),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4044),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1674,7 +1674,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 7,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8958),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4047),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1684,7 +1684,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 8,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8961),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4049),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1694,7 +1694,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 9,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8964),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4052),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1704,7 +1704,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 11,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8968),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4055),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1714,7 +1714,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 12,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8971),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4058),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1724,7 +1724,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 13,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8974),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4061),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1734,7 +1734,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 14,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8977),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4063),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1744,7 +1744,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 15,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8980),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4066),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1754,7 +1754,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 16,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8983),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4069),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1764,7 +1764,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 17,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8986),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4071),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1774,7 +1774,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 18,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8989),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4074),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1784,7 +1784,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 19,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8993),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4078),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1794,7 +1794,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 20,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8995),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4128),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1804,7 +1804,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 21,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8998),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4131),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1814,7 +1814,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 22,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9002),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4134),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1824,7 +1824,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 23,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9005),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4136),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1834,7 +1834,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 24,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9007),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4139),
                             MediaId = 1,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1844,7 +1844,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 25,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9010),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4141),
                             MediaId = 2,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1854,7 +1854,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 26,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9013),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4144),
                             MediaId = 2,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1864,7 +1864,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 27,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9015),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4146),
                             MediaId = 2,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1874,7 +1874,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 28,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9018),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4149),
                             MediaId = 2,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1884,7 +1884,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 29,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9021),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4151),
                             MediaId = 2,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1894,7 +1894,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 30,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9027),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4154),
                             MediaId = 80,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1904,7 +1904,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 31,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9030),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4156),
                             MediaId = 80,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1914,7 +1914,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 32,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9032),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4159),
                             MediaId = 80,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1924,7 +1924,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 33,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9035),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4162),
                             MediaId = 80,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1934,7 +1934,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 34,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9038),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4164),
                             MediaId = 80,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1944,7 +1944,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 35,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9042),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4168),
                             MediaId = 81,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1954,7 +1954,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 36,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9044),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4171),
                             MediaId = 81,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1964,7 +1964,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 37,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9047),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4173),
                             MediaId = 81,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1974,7 +1974,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 38,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9050),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4176),
                             MediaId = 81,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1984,7 +1984,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 39,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9053),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4178),
                             MediaId = 81,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -1994,7 +1994,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 40,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9056),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4181),
                             MediaId = 82,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2004,7 +2004,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 41,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9059),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4183),
                             MediaId = 82,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2014,7 +2014,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 42,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9061),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4186),
                             MediaId = 82,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2024,7 +2024,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 43,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9064),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4188),
                             MediaId = 82,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2034,7 +2034,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 44,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9067),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4191),
                             MediaId = 82,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2044,7 +2044,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 45,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9070),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4193),
                             MediaId = 83,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2054,7 +2054,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 46,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9073),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4196),
                             MediaId = 83,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2064,7 +2064,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 47,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9076),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4198),
                             MediaId = 83,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2074,7 +2074,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 48,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9079),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4201),
                             MediaId = 83,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2084,7 +2084,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 49,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9082),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4203),
                             MediaId = 83,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2094,7 +2094,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 50,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9084),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4207),
                             MediaId = 84,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2104,7 +2104,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 51,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9087),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4209),
                             MediaId = 84,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2114,7 +2114,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 52,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9089),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4212),
                             MediaId = 84,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2124,7 +2124,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 53,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9092),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4214),
                             MediaId = 84,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2134,7 +2134,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 54,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9095),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4217),
                             MediaId = 84,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2144,7 +2144,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 55,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9098),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4219),
                             MediaId = 85,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2154,7 +2154,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 56,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9137),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4222),
                             MediaId = 85,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2164,7 +2164,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 57,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9140),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4224),
                             MediaId = 85,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2174,7 +2174,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 58,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9143),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4227),
                             MediaId = 85,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2184,7 +2184,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 59,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9146),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4229),
                             MediaId = 85,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2194,7 +2194,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 60,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9148),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4232),
                             MediaId = 86,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2204,7 +2204,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 61,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9151),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4234),
                             MediaId = 86,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2214,7 +2214,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 62,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9154),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4237),
                             MediaId = 86,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2224,7 +2224,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 63,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9156),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4239),
                             MediaId = 86,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2234,7 +2234,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 64,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9159),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4242),
                             MediaId = 86,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2244,7 +2244,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 65,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9162),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4244),
                             MediaId = 87,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2254,7 +2254,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 66,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9165),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4247),
                             MediaId = 87,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2264,7 +2264,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 67,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9169),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4250),
                             MediaId = 87,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2274,7 +2274,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 68,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9171),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4253),
                             MediaId = 87,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2284,7 +2284,7 @@ namespace Database.Migrations
                         new
                         {
                             Id = 69,
-                            Date = new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9174),
+                            Date = new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4255),
                             MediaId = 87,
                             Number_of_seats = 100,
                             Number_of_tickets = 100,
@@ -2382,8 +2382,14 @@ namespace Database.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<bool>("Admin")
+                        .HasColumnType("bit");
+
+                    b.Property<byte[]>("Hash")
+                        .HasColumnType("varbinary(max)");
+
+                    b.Property<byte[]>("Salt")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
@@ -2396,32 +2402,10 @@ namespace Database.Migrations
                         new
                         {
                             Id = 1,
-                            Password = "123456",
-                            Username = "user1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Password = "123456",
-                            Username = "user2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Password = "123456",
-                            Username = "user3"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            Password = "123456",
-                            Username = "user4"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            Password = "123456",
-                            Username = "user5"
+                            Admin = true,
+                            Hash = new byte[] { 13, 237, 167, 170, 17, 44, 111, 123, 20, 131, 136, 9, 69, 176, 74, 70, 206, 197, 95, 21, 86, 92, 97, 69, 150, 27, 6, 68, 177, 185, 185, 240, 170, 159, 39, 191, 242, 125, 118, 108, 172, 182, 158, 152, 239, 87, 244, 249, 77, 219, 109, 31, 235, 16, 82, 177, 2, 32, 100, 242, 136, 50, 96, 191 },
+                            Salt = new byte[] { 200, 14, 126, 97, 5, 229, 38, 153, 194, 48, 48, 235, 165, 37, 3, 43, 192, 196, 54, 72, 88, 170, 159, 69, 132, 150, 85, 199, 117, 129, 107, 49, 228, 13, 173, 116, 148, 143, 111, 22, 31, 226, 114, 64, 87, 119, 3, 1, 190, 131, 56, 62, 234, 144, 211, 75, 133, 219, 10, 131, 198, 78, 135, 161, 18, 28, 168, 203, 53, 16, 121, 200, 82, 10, 243, 189, 71, 92, 89, 207, 41, 128, 92, 231, 2, 246, 60, 207, 146, 95, 120, 73, 103, 224, 98, 198, 239, 12, 185, 20, 102, 193, 197, 234, 199, 113, 188, 254, 115, 43, 53, 39, 117, 35, 83, 244, 82, 96, 136, 117, 251, 32, 111, 223, 44, 180, 35, 239 },
+                            Username = "Admin"
                         });
                 });
 

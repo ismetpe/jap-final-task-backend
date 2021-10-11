@@ -1,15 +1,12 @@
-﻿
-using AutoMapper;
+﻿using AutoMapper;
 using Core.Entities;
 using Core.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-
-namespace Mapper
+namespace movie_app_task_backend
 {
     public class AutoMapperProfile : Profile
     {

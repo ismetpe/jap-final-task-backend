@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Models.Requests
 {
-    public class RequestDto
+    public class GetMediaRequestDto
     {
         public int Id { get; set; } 
         public string SearchTerm { get; set; } = String.Empty;

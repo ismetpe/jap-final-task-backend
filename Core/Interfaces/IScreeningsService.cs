@@ -10,6 +10,8 @@ namespace Core.Interfaces
    public interface IScreeningsService
     {
         Task<List<GetScreeningDto>> GetScreenings();
-        Task<int> BuyTickets(int UserID, int ScreeningID, int NumberOfTickets, DateTime DateOfBuying);
+        Task<int> BuyTickets(AddPurchasedTicketDto request);
+
+        Task<List<GetScreeningDto>> GetScreeningsByMovie(int id);
     }
 }

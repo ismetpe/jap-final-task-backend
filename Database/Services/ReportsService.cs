@@ -41,19 +41,6 @@ namespace Database.Services
             return result;
         }
 
-        Task<List<MostRatedMoviesReport>> IReportsService.MostRatedMoviesReport()
-        {
-            throw new NotImplementedException();
-        }
 
-        Task<List<MostScreenedMoviesReport>> IReportsService.MostScreenedMoviesReport(DateTime start, DateTime end)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<List<MovieWithMostSoldTicketsReport>> IReportsService.MoviesWithMostSoldTicketsReport()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

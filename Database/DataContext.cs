@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Database.Services;
 using Microsoft.EntityFrameworkCore;
 using movie_app_task_backend.Infrastructure.Database.Seeds;
 
@@ -27,6 +28,11 @@ namespace Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            AuthService.CreatePasswordHash("admin", out byte[] passHash, out byte[] passSalt);
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = 1, Username = "Admin", Admin = true, Salt = passSalt, Hash = passHash }
+            );
             modelBuilder.Entity<Media>().HasData(MediaSeed.Medias);
 
             modelBuilder.Entity<Actor>().HasData(ActorsSeed.Actors);
@@ -35,25 +41,23 @@ namespace Database
 
             modelBuilder.Entity<Screening>().HasData(ScreeningsSeed.Screenings);
 
-            modelBuilder.Entity<User>().HasData(UsersSeed.Users);
-
             modelBuilder.Entity<Ticket>().HasData(TicketsSeed.Tickets);
 
 
 
-            /*            string GetMoviesWithMostSoldTicketsWithoutRating = @" CREATE PROCEDURE GetMoviesWithMostSoldTicketsWithoutRating
+            /*              string GetMoviesWithMostSoldTicketsWithoutRating = @" CREATE PROCEDURE GetMoviesWithMostSoldTicketsWithoutRating
                                                              AS
                                                              BEGIN
                                                              SET NOCOUNT ON
 
-                                                             SELECT  m.Id, m.Title, s.Id AS Screening,COUNT(t.Id) AS Sold_tickets
+                                                             SELECT  m.Id, m.Title, s.Id AS ScreeningName,COUNT(t.Id) AS SoldTickets
                                                              FROM Medias m
                                                              JOIN Screenings s ON s.MediaId = m.Id
                                                              JOIN Tickets t ON t.ScreeningId = s.Id
                                                              WHERE (    SELECT COUNT(*) 
                                                                         FROM Ratings r 
                                                                         WHERE r.MediaId = m.Id ) = 0
-                                                             AND isSeries = 0
+                                                             AND MediaType = 0
                                                              GROUP BY m.Id,m.Title,s.Id
                                                              ORDER BY Count(t.Id) DESC;
 
@@ -67,7 +71,7 @@ namespace Database
                                              SELECT TOP 10  m.Id, m.Title, Count(r.MediaId) as NumberOfRatings, avg(r.rating_value) AS Movie_rating 
                                              FROM Medias m 
                                              JOIN Ratings r On r.MediaId = m.Id
-                                             WHERE isSeries = 0 
+                                             WHERE MediaType = 0 
                                              GROUP BY m.Id, Title
                                              ORDER BY avg(r.rating_value) DESC;
 
@@ -85,24 +89,14 @@ namespace Database
                                              SELECT TOP 10  m.Id, m.Title, Count(s.Id) as NumberOfScreenings
                                              FROM Medias m 
                                              JOIN Screenings s On s.MediaId = m.Id
-                                             WHERE s.Date BETWEEN @start_date AND @end_date AND isSeries = 0
+                                             WHERE s.Date BETWEEN @start_date AND @end_date AND MediaType = 0
                                              GROUP BY m.Id, Title
                                              ORDER BY Count(s.Id) DESC;
 
                                               END";
             migrationBuilder.Sql(GetMoviesWithMostSoldTicketsWithoutRating);
             migrationBuilder.Sql(GetTopTenMoviesWithMostRating);
-            migrationBuilder.Sql(GetTopTenMoviesWithMostScreening);
-            
-             
-                         migrationBuilder.DropTable(
-                name: "MostRatedMoviesReports");
-
-            migrationBuilder.DropTable(
-                name: "MoviesWithMostScreeningsReports");
-
-            migrationBuilder.DropTable(
-                name: "MoviesWithMostSoldTicketsReports");*/
+            migrationBuilder.Sql(GetTopTenMoviesWithMostScreening);*/
             modelBuilder.Entity<MostRatedMoviesReport>().HasNoKey();
             modelBuilder.Entity<MostScreenedMoviesReport>().HasNoKey();
             modelBuilder.Entity<MovieWithMostSoldTicketsReport>().HasNoKey();

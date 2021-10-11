@@ -1,5 +1,4 @@
 ﻿using Core.Models.Models;
-using Core.Models.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Interfaces
 {
-    public interface IMediaService
+    public interface IUsersService
     {
-        Task<List<GetMediaDto>> GetMedia(GetMediaRequestDto request);
+        Task<List<GetPurchasedTicketsDto>> GetUserTicketsAsync(int id);
     }
 }

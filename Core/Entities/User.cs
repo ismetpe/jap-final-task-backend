@@ -6,7 +6,9 @@ namespace Core.Entities
     {
         public int Id { get; set; }
         public string Username { get; set; }
-        public string Password { get; set; }
+        public byte[] Salt { get; set; }
+        public byte[] Hash { get; set; }
+        public bool Admin { get; set; }
         public List<PurchasedTicket> PurchasedTickets { get; set; } = new List<PurchasedTicket>();
         
     }

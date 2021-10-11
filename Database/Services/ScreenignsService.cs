@@ -29,29 +29,33 @@ namespace Database.Services
 
         }
 
-        public async Task<int> BuyTickets(int UserID, int ScreeningID, int NumberOfTickets, DateTime DateOfBuying)
+        public async Task<int> BuyTickets(AddPurchasedTicketDto request)
         {
 
             var ListOfScreenings = await GetScreenings();
 
-            var screening = ListOfScreenings.Find(x => x.Id == ScreeningID);
+            var screening = ListOfScreenings.Find(x => x.Id == request.ScreeningID);
 
-            int result = DateTime.Compare(DateOfBuying, screening.Date);
 
-            Console.WriteLine(screening.Date + " " + DateOfBuying + " " + result);
 
+            int result = DateTime.Compare(request.DateOfBuying, screening.Date);
+            Console.WriteLine(screening.Date + " " + request.DateOfBuying + " " + result);
             if (result < 0 || result == 0)
             {
                 throw new Exception("Screening date must be in future");
             }
 
-            for (int i = 0; i < NumberOfTickets; i++)
+            if (request.NumberOfTickets > 10)
+            {
+                throw new Exception("You can't buy more than 10 tickets");
+            }
+            for (int i = 0; i < request.NumberOfTickets; i++)
             {
                 var purchasedTicket = new PurchasedTicket
                 {
                     Price = 5.5F,
-                    ScreeningId = ScreeningID,
-                    UserId = UserID
+                    ScreeningId = request.ScreeningID,
+                    UserId = request.UserID
                 };
 
                 await _context.PurchasedTickets.AddAsync(purchasedTicket);
@@ -61,6 +65,12 @@ namespace Database.Services
             int id = _context.PurchasedTickets.Max(x => x.Id);
 
             return id;
+        }
+
+
+       public async Task<List<GetScreeningDto>> GetScreeningsByMovie(int id)
+        {
+            return await _context.Screenings.Where(x => x.MediaId == id).Select(x => _mapper.Map<GetScreeningDto>(x)).ToListAsync();
         }
     }
 }

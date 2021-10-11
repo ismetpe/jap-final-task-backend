@@ -80,7 +80,9 @@ namespace Database.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Username = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Salt = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Hash = table.Column<byte[]>(type: "varbinary(max)", nullable: true),
+                    Admin = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -223,7 +225,7 @@ namespace Database.Migrations
                     { 52, "Victoria", "Alston" },
                     { 53, "Victoria", "Alston" },
                     { 54, "Victoria", "Alston" },
-                    { 55, "Victoria", "Alston" },
+                    { 56, "Victoria", "Alston" },
                     { 57, "Victoria", "Alston" },
                     { 58, "Victoria", "Alston" },
                     { 59, "Victoria", "Alston" },
@@ -231,7 +233,7 @@ namespace Database.Migrations
                     { 61, "Victoria", "Alston" },
                     { 33, "Melissa Schwartz", "Portman" },
                     { 32, "Carlos Ross", "Portman" },
-                    { 56, "Victoria", "Alston" },
+                    { 55, "Victoria", "Alston" },
                     { 30, "Walter Blankenship", "Portman" },
                     { 31, "Dwayne Wun", "Portman" },
                     { 2, "Natalie", "Portman" },
@@ -258,11 +260,11 @@ namespace Database.Migrations
                     { 17, "Alisha Bentley", "Portman" },
                     { 16, "Saundra West", "Portman" },
                     { 28, "Bradly Obrien", "Portman" },
-                    { 29, "Demarcus Boyle", "Portman" },
-                    { 26, "Nellie Barr", "Portman" },
+                    { 27, "Odell Best", "Portman" },
                     { 25, "Alec Davila", "Portman" },
                     { 24, "Rey Romero", "Portman" },
-                    { 27, "Odell Best", "Portman" },
+                    { 26, "Nellie Barr", "Portman" },
+                    { 29, "Demarcus Boyle", "Portman" },
                     { 22, "Normand Hughes", "Portman" },
                     { 21, "Miriam Cummings", "Portman" },
                     { 20, "Deshawn Arias", "Portman" },
@@ -276,17 +278,16 @@ namespace Database.Migrations
                 columns: new[] { "Id", "Description", "ImgUrl", "MediaType", "ReleaseYear", "Title" },
                 values: new object[,]
                 {
-                    { 74, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Enola Holmes" },
                     { 65, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Kate" },
                     { 66, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Grown ups 2" },
                     { 67, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Grown ups" },
-                    { 68, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Blended" },
                     { 70, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Playing with fire" },
-                    { 71, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Monte Carlo" },
-                    { 72, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "She is all that" },
-                    { 73, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "47 ronin" },
                     { 69, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "The Internship" },
+                    { 71, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Monte Carlo" },
                     { 64, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Work it" },
+                    { 72, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "She is all that" },
+                    { 68, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Blended" },
+                    { 73, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "47 ronin" },
                     { 58, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "John Wick" },
                     { 62, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Red 2" },
                     { 61, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Just friends" },
@@ -296,9 +297,10 @@ namespace Database.Migrations
                     { 56, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "John Wick 3" },
                     { 55, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Hangover part 1" },
                     { 54, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Hangover part 2" },
-                    { 75, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Noah" },
+                    { 74, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Enola Holmes" },
                     { 53, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Hangover part 3" },
-                    { 63, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Pitch perfect" }
+                    { 63, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Pitch perfect" },
+                    { 75, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Noah" }
                 });
 
             migrationBuilder.InsertData(
@@ -306,11 +308,9 @@ namespace Database.Migrations
                 columns: new[] { "Id", "Description", "ImgUrl", "MediaType", "ReleaseYear", "Title" },
                 values: new object[,]
                 {
-                    { 76, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "In time" },
-                    { 91, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Merlin" },
-                    { 78, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "The Mask" },
+                    { 90, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Warrior nun" },
+                    { 77, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Midway" },
                     { 52, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Swiped" },
-                    { 100, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Dare me" },
                     { 99, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Shadow hunters" },
                     { 98, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Shadow and Bone" },
                     { 97, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Good witch" },
@@ -319,9 +319,9 @@ namespace Database.Migrations
                     { 94, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "How I met your mother" },
                     { 93, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Van Helsing" },
                     { 92, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "The Walking Dead" },
-                    { 77, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Midway" },
-                    { 90, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Warrior nun" },
-                    { 88, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Journey 2" },
+                    { 91, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Merlin" },
+                    { 76, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "In time" },
+                    { 89, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Constantine" },
                     { 87, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Star trek" },
                     { 86, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Kong : skull island" },
                     { 85, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Good boys" },
@@ -331,12 +331,14 @@ namespace Database.Migrations
                     { 81, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Tomb Raidler" },
                     { 80, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Warcraft" },
                     { 79, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Holidate" },
-                    { 89, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Constantine" },
+                    { 78, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "The Mask" },
+                    { 88, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Journey 2" },
                     { 51, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Creed" },
-                    { 22, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Fate" },
-                    { 49, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Creed 3" },
-                    { 21, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Locke is key" },
                     { 20, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Invisible city" },
+                    { 49, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Creed 3" },
+                    { 22, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Fate" },
+                    { 21, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Locke is key" },
+                    { 100, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Dare me" },
                     { 19, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Teen wolf" },
                     { 18, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Marlon" },
                     { 17, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Lucifer" },
@@ -344,8 +346,8 @@ namespace Database.Migrations
                     { 15, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "ELite" },
                     { 14, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "The Flash" },
                     { 13, "A sixth-generation homesteader and devoted father, John Dutton controls the largest contiguous ranch in the United States. He operates in a corrupt world where politicians are compromised by influential oil and lumber corporations and land grabs make developers billions.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN6RB1/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg", 1, "2018-06-20", "Yellowstone" },
+                    { 23, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "The Crew" },
                     { 12, "Michael Burnham and her companions in the USS Discovery travel into the far reaches of space to meet new lifeforms and discover new planets.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN8KT4/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg", 1, "2017-09-24", "Star Trek: Discovery" },
-                    { 11, "In the wake of a zombie apocalypse, various survivors struggle to stay alive. As they search for safety and evade the undead, they are forced to grapple with rival groups and difficult choices.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN90WK/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg", 1, "2010-10-31", "The Walking Dead" },
                     { 10, "After having been missing for nearly 20 years, Rick Sanchez suddenly arrives at daughter Beth's doorstep to move in with her and her family.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN85RB/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg", 1, "2013-09-17", "Rick and Morty" },
                     { 9, "Bilbo fights against a number of enemies to save the life of his Dwarf friends and protects the Lonely Mountain after a conflict arises.", "https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZTH3PF/image?locale=en-nz&purposes=BoxArt&mode=scale&q=90&w=162", 0, "2014-12-11", "The Hobbit: The Battle of the Five Armies" }
                 });
@@ -363,9 +365,9 @@ namespace Database.Migrations
                     { 3, "Frodo and Sam arrive in Mordor with the help of Gollum. A number of new allies join their former companions to defend Isengard as Saruman launches an assault from his domain", "https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZL60J7/image?locale=en-gb&purposes=BoxArt&mode=scale&q=90&w=162", 0, "2002-12-18", "Lord Of The Rings: The Two Towers" },
                     { 2, "After Princess Leia, the leader of the Rebel Alliance, is held hostage by Darth Vader, Luke and Han Solo must free her and destroy the powerful weapon created by the Galactic Empire.", "https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZXZDZ3/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=225&w=150&", 0, "1977-05-17", "Star Wars: A New Hope" },
                     { 1, "Luke Skywalker attempts to bring his father back to the light side of the Force. At the same time, the rebels hatch a plan to destroy the second Death Star.", "https://musicimage.xboxlive.com/catalog/video.movie.8D6KGWZZCMJ4/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "1983-05-25", "Star Wars: Return of the Jedi" },
+                    { 11, "In the wake of a zombie apocalypse, various survivors struggle to stay alive. As they search for safety and evade the undead, they are forced to grapple with rival groups and difficult choices.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN90WK/image?locale=en-us&mode=crop&purposes=BoxArt&q=90&h=300&w=200&format=jpg", 1, "2010-10-31", "The Walking Dead" },
                     { 50, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Creed 2" },
                     { 24, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Riverdale" },
-                    { 23, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "The Crew" },
                     { 26, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "Family guy" },
                     { 48, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Takers" },
                     { 47, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Crash pad" },
@@ -376,9 +378,9 @@ namespace Database.Migrations
                     { 42, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Transporter 3" },
                     { 41, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Wonder" },
                     { 40, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "POMS" },
+                    { 39, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Defiance" },
                     { 25, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 1, "2013-09-17", "The Ranch" },
                     { 38, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Gladiator" },
-                    { 39, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Defiance" },
                     { 36, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Robin Hood" },
                     { 35, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "Endless love" },
                     { 34, "Ray Holt, an eccentric commanding officer, and his diverse and quirky team of odd detectives solve crimes in Brooklyn, New York City.", "https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWXN91QP/image?locale=de-de&mode=crop&purposes=BoxArt&q=90&h=225&w=150&format=jpg", 0, "2013-09-17", "The half of it" },
@@ -394,15 +396,8 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "Password", "Username" },
-                values: new object[,]
-                {
-                    { 4, "123456", "user4" },
-                    { 1, "123456", "user1" },
-                    { 2, "123456", "user2" },
-                    { 3, "123456", "user3" },
-                    { 5, "123456", "user5" }
-                });
+                columns: new[] { "Id", "Admin", "Hash", "Salt", "Username" },
+                values: new object[] { 1, true, new byte[] { 13, 237, 167, 170, 17, 44, 111, 123, 20, 131, 136, 9, 69, 176, 74, 70, 206, 197, 95, 21, 86, 92, 97, 69, 150, 27, 6, 68, 177, 185, 185, 240, 170, 159, 39, 191, 242, 125, 118, 108, 172, 182, 158, 152, 239, 87, 244, 249, 77, 219, 109, 31, 235, 16, 82, 177, 2, 32, 100, 242, 136, 50, 96, 191 }, new byte[] { 200, 14, 126, 97, 5, 229, 38, 153, 194, 48, 48, 235, 165, 37, 3, 43, 192, 196, 54, 72, 88, 170, 159, 69, 132, 150, 85, 199, 117, 129, 107, 49, 228, 13, 173, 116, 148, 143, 111, 22, 31, 226, 114, 64, 87, 119, 3, 1, 190, 131, 56, 62, 234, 144, 211, 75, 133, 219, 10, 131, 198, 78, 135, 161, 18, 28, 168, 203, 53, 16, 121, 200, 82, 10, 243, 189, 71, 92, 89, 207, 41, 128, 92, 231, 2, 246, 60, 207, 146, 95, 120, 73, 103, 224, 98, 198, 239, 12, 185, 20, 102, 193, 197, 234, 199, 113, 188, 254, 115, 43, 53, 39, 117, 35, 83, 244, 82, 96, 136, 117, 251, 32, 111, 223, 44, 180, 35, 239 }, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Ratings",
@@ -440,24 +435,24 @@ namespace Database.Migrations
                 columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
                 values: new object[,]
                 {
-                    { 23, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9005), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 38, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9050), 81, 100, 100, "Sarajevo", "11:00" },
-                    { 39, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9053), 81, 100, 100, "Sarajevo", "11:00" },
-                    { 40, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9056), 82, 100, 100, "Sarajevo", "11:00" },
-                    { 41, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9059), 82, 100, 100, "Sarajevo", "11:00" },
-                    { 42, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9061), 82, 100, 100, "Sarajevo", "11:00" },
-                    { 43, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9064), 82, 100, 100, "Sarajevo", "11:00" },
-                    { 44, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9067), 82, 100, 100, "Sarajevo", "11:00" },
-                    { 45, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9070), 83, 100, 100, "Sarajevo", "11:00" },
-                    { 46, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9073), 83, 100, 100, "Sarajevo", "11:00" },
-                    { 47, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9076), 83, 100, 100, "Sarajevo", "11:00" },
-                    { 48, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9079), 83, 100, 100, "Sarajevo", "11:00" },
-                    { 49, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9082), 83, 100, 100, "Sarajevo", "11:00" },
-                    { 50, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9084), 84, 100, 100, "Sarajevo", "11:00" },
-                    { 51, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9087), 84, 100, 100, "Sarajevo", "11:00" },
-                    { 37, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9047), 81, 100, 100, "Sarajevo", "11:00" },
-                    { 52, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9089), 84, 100, 100, "Sarajevo", "11:00" },
-                    { 54, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9095), 84, 100, 100, "Sarajevo", "11:00" }
+                    { 23, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4136), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 38, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4176), 81, 100, 100, "Sarajevo", "11:00" },
+                    { 39, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4178), 81, 100, 100, "Sarajevo", "11:00" },
+                    { 40, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4181), 82, 100, 100, "Sarajevo", "11:00" },
+                    { 41, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4183), 82, 100, 100, "Sarajevo", "11:00" },
+                    { 42, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4186), 82, 100, 100, "Sarajevo", "11:00" },
+                    { 43, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4188), 82, 100, 100, "Sarajevo", "11:00" },
+                    { 44, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4191), 82, 100, 100, "Sarajevo", "11:00" },
+                    { 45, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4193), 83, 100, 100, "Sarajevo", "11:00" },
+                    { 46, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4196), 83, 100, 100, "Sarajevo", "11:00" },
+                    { 47, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4198), 83, 100, 100, "Sarajevo", "11:00" },
+                    { 48, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4201), 83, 100, 100, "Sarajevo", "11:00" },
+                    { 49, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4203), 83, 100, 100, "Sarajevo", "11:00" },
+                    { 50, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4207), 84, 100, 100, "Sarajevo", "11:00" },
+                    { 51, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4209), 84, 100, 100, "Sarajevo", "11:00" },
+                    { 37, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4173), 81, 100, 100, "Sarajevo", "11:00" },
+                    { 52, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4212), 84, 100, 100, "Sarajevo", "11:00" },
+                    { 54, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4217), 84, 100, 100, "Sarajevo", "11:00" }
                 });
 
             migrationBuilder.InsertData(
@@ -465,48 +460,48 @@ namespace Database.Migrations
                 columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
                 values: new object[,]
                 {
-                    { 55, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9098), 85, 100, 100, "Sarajevo", "11:00" },
-                    { 56, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9137), 85, 100, 100, "Sarajevo", "11:00" },
-                    { 57, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9140), 85, 100, 100, "Sarajevo", "11:00" },
-                    { 58, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9143), 85, 100, 100, "Sarajevo", "11:00" },
-                    { 59, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9146), 85, 100, 100, "Sarajevo", "11:00" },
-                    { 60, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9148), 86, 100, 100, "Sarajevo", "11:00" },
-                    { 61, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9151), 86, 100, 100, "Sarajevo", "11:00" },
-                    { 62, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9154), 86, 100, 100, "Sarajevo", "11:00" },
-                    { 63, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9156), 86, 100, 100, "Sarajevo", "11:00" },
-                    { 64, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9159), 86, 100, 100, "Sarajevo", "11:00" },
-                    { 65, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9162), 87, 100, 100, "Sarajevo", "11:00" },
-                    { 66, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9165), 87, 100, 100, "Sarajevo", "11:00" },
-                    { 67, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9169), 87, 100, 100, "Sarajevo", "11:00" },
-                    { 53, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9092), 84, 100, 100, "Sarajevo", "11:00" },
-                    { 36, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9044), 81, 100, 100, "Sarajevo", "11:00" },
-                    { 35, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9042), 81, 100, 100, "Sarajevo", "11:00" },
-                    { 34, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9038), 80, 100, 100, "Sarajevo", "11:00" },
-                    { 25, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9010), 2, 100, 100, "Sarajevo", "11:00" },
-                    { 26, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9013), 2, 100, 100, "Sarajevo", "11:00" },
-                    { 27, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9015), 2, 100, 100, "Sarajevo", "11:00" },
-                    { 28, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9018), 2, 100, 100, "Sarajevo", "11:00" },
-                    { 29, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9021), 2, 100, 100, "Sarajevo", "11:00" },
-                    { 22, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9002), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 21, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8998), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 20, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8995), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 19, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8993), 1, 100, 100, "Sarajevo", "12:00" },
-                    { 18, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8989), 1, 100, 100, "Sarajevo", "13:00" },
-                    { 17, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8986), 1, 100, 100, "Sarajevo", "14:00" },
-                    { 16, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8983), 1, 100, 100, "Sarajevo", "15:00" },
-                    { 15, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8980), 1, 100, 100, "Sarajevo", "16:00" },
-                    { 14, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8977), 1, 100, 100, "Sarajevo", "17:00" },
-                    { 13, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8974), 1, 100, 100, "Sarajevo", "18:00" },
-                    { 12, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8971), 1, 100, 100, "Sarajevo", "19:00" },
-                    { 11, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8968), 1, 100, 100, "Sarajevo", "20:00" },
-                    { 33, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9035), 80, 100, 100, "Sarajevo", "11:00" },
-                    { 32, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9032), 80, 100, 100, "Sarajevo", "11:00" },
-                    { 31, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9030), 80, 100, 100, "Sarajevo", "11:00" },
-                    { 30, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9027), 80, 100, 100, "Sarajevo", "11:00" },
-                    { 1, new DateTime(2022, 1, 16, 19, 57, 33, 746, DateTimeKind.Local).AddTicks(8635), 1, 100, 100, "Sarajevo", "10:00" },
-                    { 2, new DateTime(2021, 10, 14, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8907), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 24, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9007), 1, 100, 100, "Sarajevo", "11:00" },
-                    { 3, new DateTime(2021, 10, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8940), 1, 100, 100, "Sarajevo", "08:00" }
+                    { 55, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4219), 85, 100, 100, "Sarajevo", "11:00" },
+                    { 56, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4222), 85, 100, 100, "Sarajevo", "11:00" },
+                    { 57, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4224), 85, 100, 100, "Sarajevo", "11:00" },
+                    { 58, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4227), 85, 100, 100, "Sarajevo", "11:00" },
+                    { 59, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4229), 85, 100, 100, "Sarajevo", "11:00" },
+                    { 60, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4232), 86, 100, 100, "Sarajevo", "11:00" },
+                    { 61, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4234), 86, 100, 100, "Sarajevo", "11:00" },
+                    { 62, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4237), 86, 100, 100, "Sarajevo", "11:00" },
+                    { 63, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4239), 86, 100, 100, "Sarajevo", "11:00" },
+                    { 64, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4242), 86, 100, 100, "Sarajevo", "11:00" },
+                    { 65, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4244), 87, 100, 100, "Sarajevo", "11:00" },
+                    { 66, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4247), 87, 100, 100, "Sarajevo", "11:00" },
+                    { 67, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4250), 87, 100, 100, "Sarajevo", "11:00" },
+                    { 53, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4214), 84, 100, 100, "Sarajevo", "11:00" },
+                    { 36, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4171), 81, 100, 100, "Sarajevo", "11:00" },
+                    { 35, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4168), 81, 100, 100, "Sarajevo", "11:00" },
+                    { 34, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4164), 80, 100, 100, "Sarajevo", "11:00" },
+                    { 25, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4141), 2, 100, 100, "Sarajevo", "11:00" },
+                    { 26, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4144), 2, 100, 100, "Sarajevo", "11:00" },
+                    { 27, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4146), 2, 100, 100, "Sarajevo", "11:00" },
+                    { 28, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4149), 2, 100, 100, "Sarajevo", "11:00" },
+                    { 29, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4151), 2, 100, 100, "Sarajevo", "11:00" },
+                    { 22, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4134), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 21, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4131), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 20, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4128), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 19, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4078), 1, 100, 100, "Sarajevo", "12:00" },
+                    { 18, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4074), 1, 100, 100, "Sarajevo", "13:00" },
+                    { 17, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4071), 1, 100, 100, "Sarajevo", "14:00" },
+                    { 16, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4069), 1, 100, 100, "Sarajevo", "15:00" },
+                    { 15, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4066), 1, 100, 100, "Sarajevo", "16:00" },
+                    { 14, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4063), 1, 100, 100, "Sarajevo", "17:00" },
+                    { 13, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4061), 1, 100, 100, "Sarajevo", "18:00" },
+                    { 12, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4058), 1, 100, 100, "Sarajevo", "19:00" },
+                    { 11, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4055), 1, 100, 100, "Sarajevo", "20:00" },
+                    { 33, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4162), 80, 100, 100, "Sarajevo", "11:00" },
+                    { 32, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4159), 80, 100, 100, "Sarajevo", "11:00" },
+                    { 31, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4156), 80, 100, 100, "Sarajevo", "11:00" },
+                    { 30, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4154), 80, 100, 100, "Sarajevo", "11:00" },
+                    { 1, new DateTime(2022, 1, 22, 20, 53, 28, 805, DateTimeKind.Local).AddTicks(5974), 1, 100, 100, "Sarajevo", "10:00" },
+                    { 2, new DateTime(2021, 10, 20, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4007), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 24, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4139), 1, 100, 100, "Sarajevo", "11:00" },
+                    { 3, new DateTime(2021, 10, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4032), 1, 100, 100, "Sarajevo", "08:00" }
                 });
 
             migrationBuilder.InsertData(
@@ -514,14 +509,14 @@ namespace Database.Migrations
                 columns: new[] { "Id", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
                 values: new object[,]
                 {
-                    { 5, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8948), 1, 100, 100, "Sarajevo", "10:00" },
-                    { 6, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8956), 1, 100, 100, "Sarajevo", "00:00" },
-                    { 68, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9171), 87, 100, 100, "Sarajevo", "11:00" },
-                    { 7, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8958), 1, 100, 100, "Sarajevo", "23:00" },
-                    { 8, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8961), 1, 100, 100, "Sarajevo", "22:00" },
-                    { 9, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8964), 1, 100, 100, "Sarajevo", "21:00" },
-                    { 4, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(8945), 1, 100, 100, "Sarajevo", "09:00" },
-                    { 69, new DateTime(2022, 1, 12, 14, 17, 33, 748, DateTimeKind.Local).AddTicks(9174), 87, 100, 100, "Sarajevo", "11:00" }
+                    { 5, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4039), 1, 100, 100, "Sarajevo", "10:00" },
+                    { 6, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4044), 1, 100, 100, "Sarajevo", "00:00" },
+                    { 68, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4253), 87, 100, 100, "Sarajevo", "11:00" },
+                    { 7, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4047), 1, 100, 100, "Sarajevo", "23:00" },
+                    { 8, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4049), 1, 100, 100, "Sarajevo", "22:00" },
+                    { 9, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4052), 1, 100, 100, "Sarajevo", "21:00" },
+                    { 4, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4036), 1, 100, 100, "Sarajevo", "09:00" },
+                    { 69, new DateTime(2022, 1, 18, 15, 13, 28, 807, DateTimeKind.Local).AddTicks(4255), 87, 100, 100, "Sarajevo", "11:00" }
                 });
 
             migrationBuilder.InsertData(
@@ -565,58 +560,6 @@ namespace Database.Migrations
                 name: "IX_Tickets_ScreeningId",
                 table: "Tickets",
                 column: "ScreeningId");
-            string GetMoviesWithMostSoldTicketsWithoutRating = @" CREATE PROCEDURE GetMoviesWithMostSoldTicketsWithoutRating
-                                                             AS
-                                                             BEGIN
-                                                             SET NOCOUNT ON
-
-                                                             SELECT  m.Id, m.Title, s.Id AS Screening,COUNT(t.Id) AS Sold_tickets
-                                                             FROM Medias m
-                                                             JOIN Screenings s ON s.MediaId = m.Id
-                                                             JOIN Tickets t ON t.ScreeningId = s.Id
-                                                             WHERE (    SELECT COUNT(*) 
-                                                                        FROM Ratings r 
-                                                                        WHERE r.MediaId = m.Id ) = 0
-                                                             AND MediaType = 0
-                                                             GROUP BY m.Id,m.Title,s.Id
-                                                             ORDER BY Count(t.Id) DESC;
-
-                                                             END";
-
-            string GetTopTenMoviesWithMostRating = @"CREATE PROCEDURE GetTopTenMoviesWithMostRating
-                                             AS
-                                             BEGIN
-                                             SET NOCOUNT ON
-
-                                             SELECT TOP 10  m.Id, m.Title, Count(r.MediaId) as NumberOfRatings, avg(r.rating_value) AS Movie_rating 
-                                             FROM Medias m 
-                                             JOIN Ratings r On r.MediaId = m.Id
-                                             WHERE MediaType = 0 
-                                             GROUP BY m.Id, Title
-                                             ORDER BY avg(r.rating_value) DESC;
-
-                                             END";
-
-
-
-
-            string GetTopTenMoviesWithMostScreening = @"CREATE PROCEDURE GetTopTenMoviesWithMostScreening
-                                             @start_date DateTime,@end_date DateTime
-                                             AS
-                                             BEGIN
-                                             SET NOCOUNT ON
-
-                                             SELECT TOP 10  m.Id, m.Title, Count(s.Id) as NumberOfScreenings
-                                             FROM Medias m 
-                                             JOIN Screenings s On s.MediaId = m.Id
-                                             WHERE s.Date BETWEEN @start_date AND @end_date AND MediaType = 0
-                                             GROUP BY m.Id, Title
-                                             ORDER BY Count(s.Id) DESC;
-
-                                              END";
-            migrationBuilder.Sql(GetMoviesWithMostSoldTicketsWithoutRating);
-            migrationBuilder.Sql(GetTopTenMoviesWithMostRating);
-            migrationBuilder.Sql(GetTopTenMoviesWithMostScreening);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -653,14 +596,6 @@ namespace Database.Migrations
 
             migrationBuilder.DropTable(
                 name: "Medias");
-            migrationBuilder.DropTable(
-name: "MostRatedMoviesReports");
-
-            migrationBuilder.DropTable(
-                name: "MoviesWithMostScreeningsReports");
-
-            migrationBuilder.DropTable(
-                name: "MoviesWithMostSoldTicketsReports"); 
         }
     }
 }
