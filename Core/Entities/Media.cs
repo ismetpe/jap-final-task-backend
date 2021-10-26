@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Core.Entities
 {
-    public class Media
+    public class Media : BaseEntity
     {
         public int Id { get; set; }
         public string Title { get; set; }

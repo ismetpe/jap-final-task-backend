@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Error
+    public class Error 
     {
         public int StatusCode { get; set; }
         public string Message { get; set; }

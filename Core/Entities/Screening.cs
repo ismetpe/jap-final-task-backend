@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Core.Entities
 {
-    public class Screening
+    public class Screening : BaseEntity
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }

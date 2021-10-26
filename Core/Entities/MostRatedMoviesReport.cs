@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class MostRatedMoviesReport
+    public class MostRatedMoviesReport 
     {
         public string Title { get; set; }
         public int NumberOfRatings { get; set; }

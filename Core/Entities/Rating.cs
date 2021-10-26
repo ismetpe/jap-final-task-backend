@@ -4,7 +4,7 @@ using System;
 
 namespace Core.Entities
 {
-    public class Rating
+    public class Rating : BaseEntity
     {
         public int Id { get; set; }
         public float Rating_value { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class ServiceResponse<T>
+    public class ServiceResponse<T> 
     {
         public T Data { get; set; }
         public bool Success { get; set; } = true;

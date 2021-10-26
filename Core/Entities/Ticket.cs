@@ -1,6 +1,6 @@
 namespace Core.Entities
 {
-    public class Ticket
+    public class Ticket : BaseEntity
     {
         public int Id { get; set; }
         public float Price { get; set; }

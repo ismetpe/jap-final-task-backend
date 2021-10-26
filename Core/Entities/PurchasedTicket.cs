@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 namespace Core.Entities
 {
-    public class PurchasedTicket
+    public class PurchasedTicket : BaseEntity
     {
         public int Id { get; set; }
         public float Price { get; set; }
