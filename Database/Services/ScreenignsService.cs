@@ -61,5 +61,24 @@ namespace Database.Services
         {
             return await _context.Screenings.Where(x => x.MediaId == id).Select(x => _mapper.Map<GetScreeningDto>(x)).ToListAsync();
         }
+
+        public async Task<int> AddScreeningsAsync(AddScreeningDto screening)
+        {
+            var addScreening = new Screening
+            {
+                Date = screening.Date,
+                Place = screening.Place,
+                Number_of_seats = screening.NumberOfSeats,
+                Number_of_tickets = screening.NumberOfTickets,
+                Tickets = screening.Tickets,
+                Time = screening.Time,
+                MediaId = screening.MediaId
+            };
+
+            await _context.Screenings.AddAsync(addScreening);
+            await _context.SaveChangesAsync();
+
+            return _context.Screenings.Max(x => x.Id);
+        }
     }
 }

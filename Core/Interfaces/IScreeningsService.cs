@@ -12,5 +12,6 @@ namespace Core.Interfaces
         Task<List<GetScreeningDto>> GetScreeningsAsync();
         Task<int> BuyTicketsAsync(AddPurchasedTicketDto request);
         Task<List<GetScreeningDto>> GetScreeningsByMovieAsync(int id);
+        Task<int> AddScreeningsAsync(AddScreeningDto screening);
     }
 }
