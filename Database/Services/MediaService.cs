@@ -40,7 +40,7 @@ namespace Database.Services
                                   .Include(x => x.Ratings)
                                   .AsSplitQuery()
                                   .Include(x => x.Actors)
-                                  .AsSplitQuery().Where(s => s.Ratings.Select(x => x.Rating_value).Average() >= i).Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
+                                  .AsSplitQuery().Where(s => s.Ratings.Select(x => x.RatingValue).Average() >= i).Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
 
                 }
                 else
@@ -49,7 +49,7 @@ namespace Database.Services
                                   .Include(x => x.Ratings)
                                   .AsSplitQuery()
                                   .Include(x => x.Actors)
-                                  .AsSplitQuery().Where(s => s.Ratings.Select(x => x.Rating_value).Average() == i).Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
+                                  .AsSplitQuery().Where(s => s.Ratings.Select(x => x.RatingValue).Average() == i).Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
 
                 }
             }
@@ -117,8 +117,8 @@ namespace Database.Services
             {
                 Title = movie.Title,
                 Description = movie.Description,
-                ReleaseYear = movie.Release_year,
-                ImgUrl = movie.img_url,
+                ReleaseYear = movie.ReleaseYear,
+                ImgUrl = movie.ImgUrl,
                 MediaType = movie.MediaType
 
             };
@@ -126,7 +126,7 @@ namespace Database.Services
             await _context.Medias.AddAsync(addMovie);
             await _context.SaveChangesAsync();
 
-            return _context.Medias.Max(x => x.Id);
+            return addMovie.Id;
         }
 
         public async Task<int> EditMovieAsync(EditMovieDto movie, int Id)
@@ -141,9 +141,9 @@ namespace Database.Services
             {
                 m.Title = movie.Title;
             }
-            if (!string.IsNullOrEmpty(movie.img_url))
+            if (!string.IsNullOrEmpty(movie.ImgUrl))
             {
-                m.ImgUrl = movie.img_url;
+                m.ImgUrl = movie.ImgUrl;
             }
             if (!string.IsNullOrEmpty(movie.ReleaseYear))
             {
@@ -151,7 +151,7 @@ namespace Database.Services
             }
             await _context.SaveChangesAsync();
 
-            return _context.Screenings.Max(x => x.Id);
+            return m.Id;
         }
     }
 }

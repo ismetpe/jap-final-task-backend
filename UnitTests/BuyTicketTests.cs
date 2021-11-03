@@ -91,15 +91,15 @@ namespace UnitTests
 
 
 
-            _context.Ratings.Add(new Rating { Id = 1, Rating_value = 4.6F, MediaId = 1 });
-            _context.Ratings.Add(new Rating { Id = 2, Rating_value = 4.5F, MediaId = 1 });
-            _context.Ratings.Add(new Rating { Id = 3, Rating_value = 4.0F, MediaId = 1 });
-            _context.Ratings.Add(new Rating { Id = 4, Rating_value = 4.2F, MediaId = 1 });
+            _context.Ratings.Add(new Rating { Id = 1, RatingValue = 4.6F, MediaId = 1 });
+            _context.Ratings.Add(new Rating { Id = 2, RatingValue = 4.5F, MediaId = 1 });
+            _context.Ratings.Add(new Rating { Id = 3, RatingValue = 4.0F, MediaId = 1 });
+            _context.Ratings.Add(new Rating { Id = 4, RatingValue = 4.2F, MediaId = 1 });
 
-             _context.Screenings.Add(new Screening { Id = 1, Date = System.DateTime.Now.AddDays(100).AddHours(100).AddMinutes(100), MediaId = 1, Number_of_seats = 100, Number_of_tickets = 100, Place = "Sarajevo", Time = "10:00" });
-            _context.Screenings.Add(new Screening { Id = 2, Date = System.DateTime.Now.AddDays(10), MediaId = 1, Number_of_seats = 100, Number_of_tickets = 100, Place = "Sarajevo", Time = "11:00" });
-            _context.Screenings.Add(new Screening { Id = 3, Date = System.DateTime.Now.AddDays(8), MediaId = 1, Number_of_seats = 100, Number_of_tickets = 100, Place = "Sarajevo", Time = "08:00" });
-            _context.Screenings.Add(new Screening { Id = 4, Date = System.DateTime.Now.AddDays(100), MediaId = 1, Number_of_seats = 100, Number_of_tickets = 100, Place = "Sarajevo", Time = "09:00" });
+             _context.Screenings.Add(new Screening { Id = 1, Date = System.DateTime.Now.AddDays(100).AddHours(100).AddMinutes(100), MediaId = 1, NumberOfSeats = 100, NumberOfTickets = 100, Place = "Sarajevo", Time = "10:00" });
+            _context.Screenings.Add(new Screening { Id = 2, Date = System.DateTime.Now.AddDays(10), MediaId = 1, NumberOfSeats = 100, NumberOfTickets = 100, Place = "Sarajevo", Time = "11:00" });
+            _context.Screenings.Add(new Screening { Id = 3, Date = System.DateTime.Now.AddDays(8), MediaId = 1, NumberOfSeats = 100, NumberOfTickets = 100, Place = "Sarajevo", Time = "08:00" });
+            _context.Screenings.Add(new Screening { Id = 4, Date = System.DateTime.Now.AddDays(100), MediaId = 1, NumberOfSeats = 100, NumberOfTickets = 100, Place = "Sarajevo", Time = "09:00" });
 
             AuthService.CreatePasswordHash("user123", out byte[] passHash, out byte[] passSalt);
             _context.Users.Add(new User { Id = 1, Username = "user", Admin = false, Salt = passSalt, Hash = passHash });

@@ -9,7 +9,7 @@ namespace Core.Entities
    public class Actor : BaseEntity
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Firstname { get; set; }
         public string Surname { get; set; }
         public List<Media> Media { get; set; } = new List<Media>();
     }

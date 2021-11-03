@@ -53,7 +53,7 @@ namespace Database.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Firstname")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Surname")
@@ -2020,10 +2020,10 @@ namespace Database.Migrations
                     b.Property<int>("MediaId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Number_of_seats")
+                    b.Property<int>("NumberOfSeats")
                         .HasColumnType("int");
 
-                    b.Property<int>("Number_of_tickets")
+                    b.Property<int>("NumberOfTickets")
                         .HasColumnType("int");
 
                     b.Property<string>("Place")

@@ -23,7 +23,7 @@ namespace Database.Services
         {
             var addRating = new Rating
             {
-                Rating_value = rating,
+                RatingValue = rating,
                 MediaId = MediaId,
 
             };
@@ -31,9 +31,8 @@ namespace Database.Services
             await _context.Ratings.AddAsync(addRating);
             await _context.SaveChangesAsync();
 
-            int result = _context.Ratings.Max(x => x.Id);
 
-            return result;
+            return addRating.Id;
         }
     }
 }

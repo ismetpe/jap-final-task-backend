@@ -68,8 +68,8 @@ namespace Database.Services
             {
                 Date = screening.Date,
                 Place = screening.Place,
-                Number_of_seats = screening.NumberOfSeats,
-                Number_of_tickets = screening.NumberOfTickets,
+                NumberOfSeats = screening.NumberOfSeats,
+                NumberOfTickets = screening.NumberOfTickets,
                 Tickets = screening.Tickets,
                 Time = screening.Time,
                 MediaId = screening.MediaId
@@ -78,7 +78,7 @@ namespace Database.Services
             await _context.Screenings.AddAsync(addScreening);
             await _context.SaveChangesAsync();
 
-            return _context.Screenings.Max(x => x.Id);
+            return addScreening.Id;
         }
     }
 }

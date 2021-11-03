@@ -228,7 +228,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Actors",
-                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Name", "Surname" },
+                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Firstname", "Surname" },
                 values: new object[,]
                 {
                     { 1, null, null, new DateTime(2021, 10, 29, 8, 4, 40, 14, DateTimeKind.Local).AddTicks(5032), "SYSTEM", "Chris", "Hemsworth" },
@@ -277,7 +277,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Actors",
-                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Name", "Surname" },
+                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Firstname", "Surname" },
                 values: new object[,]
                 {
                     { 12, null, null, new DateTime(2021, 10, 29, 8, 4, 40, 14, DateTimeKind.Local).AddTicks(5882), "SYSTEM", "Angelia Ruiz", "Portman" },
@@ -460,7 +460,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 23, null, null, new DateTime(2021, 10, 29, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8460), "SYSTEM", new DateTime(2022, 2, 6, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8462), 1, 100, 100, "Sarajevo", "11:00" },
@@ -485,7 +485,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 55, null, null, new DateTime(2021, 10, 29, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8637), "SYSTEM", new DateTime(2022, 2, 6, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8639), 85, 100, 100, "Sarajevo", "11:00" },
@@ -534,7 +534,7 @@ namespace Database.Migrations
 
             migrationBuilder.InsertData(
                 table: "Screenings",
-                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "Number_of_seats", "Number_of_tickets", "Place", "Time" },
+                columns: new[] { "Id", "ArchivedAt", "ArchivedBy", "CreatedAt", "CreatedBy", "Date", "MediaId", "NumberOfSeats", "NumberOfTickets", "Place", "Time" },
                 values: new object[,]
                 {
                     { 5, null, null, new DateTime(2021, 10, 29, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8381), "SYSTEM", new DateTime(2022, 2, 6, 8, 4, 40, 17, DateTimeKind.Local).AddTicks(8383), 1, 100, 100, "Sarajevo", "10:00" },

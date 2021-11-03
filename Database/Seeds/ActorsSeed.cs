@@ -11,358 +11,358 @@ namespace movie_app_task_backend.Infrastructure.Database.Seeds
     {
         public static List<Actor> Actors { get; } = new()
         {
-            new Actor { Id = 1, Name = "Chris", Surname = "Hemsworth" },
-            new Actor { Id = 2, Name = "Natalie", Surname = "Portman" },
-            new Actor { Id = 3, Name = "Tom Hiddleston", Surname = "Portman" },
+            new Actor { Id = 1, Firstname = "Chris", Surname = "Hemsworth" },
+            new Actor { Id = 2, Firstname = "Natalie", Surname = "Portman" },
+            new Actor { Id = 3, Firstname = "Tom Hiddleston", Surname = "Portman" },
             new Actor
             {
                 Id = 4,
-                Name = "Brianna Howe",
+                Firstname = "Brianna Howe",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 5,
-                Name = "Carver Wong",
+                Firstname = "Carver Wong",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 6,
-                Name = "James Hines",
+                Firstname = "James Hines",
                 Surname = "Portman",
             },
             new Actor
             {
                 Id = 7,
-                Name = "Leon Jarvis",
+                Firstname = "Leon Jarvis",
                 Surname = "Portman",
 
             },
             new Actor
             {
                 Id = 8,
-                Name = "Vinson Moran",
+                Firstname = "Vinson Moran",
                 Surname = "Portman",
 
             },
             new Actor
             {
                 Id = 9,
-                Name = "Simpson Evans",
+                Firstname = "Simpson Evans",
                 Surname = "Portman",
 
             },
             new Actor
             {
                 Id = 10,
-                Name = "Henry Molina",
+                Firstname = "Henry Molina",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 11,
-                Name = "Mccullough Curry",
+                Firstname = "Mccullough Curry",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 12,
-                Name = "Angelia Ruiz",
+                Firstname = "Angelia Ruiz",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 13,
-                Name = "Hinton Love",
+                Firstname = "Hinton Love",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 14,
-                Name = "Adrienne Logan",
+                Firstname = "Adrienne Logan",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 15,
-                Name = "Broderick Moore",
+                Firstname = "Broderick Moore",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 16,
-                Name = "Saundra West",
+                Firstname = "Saundra West",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 17,
-                Name = "Alisha Bentley",
+                Firstname = "Alisha Bentley",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 18,
-                Name = "Hiram Strickland",
+                Firstname = "Hiram Strickland",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 19,
-                Name = "Larry Garcia",
+                Firstname = "Larry Garcia",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 20,
-                Name = "Deshawn Arias",
+                Firstname = "Deshawn Arias",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 21,
-                Name = "Miriam Cummings",
+                Firstname = "Miriam Cummings",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 22,
-                Name = "Normand Hughes",
+                Firstname = "Normand Hughes",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 23,
-                Name = "Modesto Clements",
+                Firstname = "Modesto Clements",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 24,
-                Name = "Rey Romero",
+                Firstname = "Rey Romero",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 25,
-                Name = "Alec Davila",
+                Firstname = "Alec Davila",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 26,
-                Name = "Nellie Barr",
+                Firstname = "Nellie Barr",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 27,
-                Name = "Odell Best",
+                Firstname = "Odell Best",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 28,
-                Name = "Bradly Obrien",
+                Firstname = "Bradly Obrien",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 29,
-                Name = "Demarcus Boyle",
+                Firstname = "Demarcus Boyle",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 30,
-                Name = "Walter Blankenship",
+                Firstname = "Walter Blankenship",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 31,
-                Name = "Dwayne Wun",
+                Firstname = "Dwayne Wun",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 32,
-                Name = "Carlos Ross",
+                Firstname = "Carlos Ross",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 33,
-                Name = "Melissa Schwartz",
+                Firstname = "Melissa Schwartz",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 34,
-                Name = "Scottie Fleming",
+                Firstname = "Scottie Fleming",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 35,
-                Name = "Mara Baldwin",
+                Firstname = "Mara Baldwin",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 36,
-                Name = "Kristina Hardy",
+                Firstname = "Kristina Hardy",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 37,
-                Name = "Chris Brandt",
+                Firstname = "Chris Brandt",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 38,
-                Name = "Alva Compton",
+                Firstname = "Alva Compton",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 39,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 40,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 41,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 42,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 43,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 44,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 45,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 46,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 47,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 48,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 49,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 50,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 51,
-                Name = "Victoria Alston",
+                Firstname = "Victoria Alston",
                 Surname = "Portman"
             },
             new Actor
             {
                 Id = 52,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 53,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 54,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 55,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 56,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 57,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 58,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 59,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 60,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             },
             new Actor
             {
                 Id = 61,
-                Name = "Victoria",
+                Firstname = "Victoria",
                 Surname = "Alston"
             }
 
