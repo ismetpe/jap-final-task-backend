@@ -54,15 +54,11 @@ namespace Database.Services
                 }
             }
 
-
-
-            //throw new NotSupportedException();
             return await _context.Medias
                           .Include(x => x.Ratings)
                           .AsSplitQuery()
                           .Include(x => x.Actors)
                           .AsSplitQuery().Where(s => s.Title.ToUpper().Contains(value.ToUpper()) || s.Description.ToUpper().Contains(value.ToUpper())).Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
-
 
         }
         private async Task<List<GetMediaDto>> TypeFilterAsync(MediaType? type, int pagination)
