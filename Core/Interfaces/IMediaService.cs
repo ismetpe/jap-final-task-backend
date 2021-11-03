@@ -14,6 +14,5 @@ namespace Core.Interfaces
         Task<int> AddMovieAsync(AddMovieDto movie);
         Task<int> EditMovieAsync(EditMovieDto movie, int Id);
 
-
     }
 }

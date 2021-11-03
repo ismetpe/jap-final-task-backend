@@ -26,7 +26,6 @@ namespace Database
         public DbSet<Rating> Ratings { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Screening> Screenings { get; set; }
-        public DbSet<Ticket> Tickets { get; set; }
         public DbSet<MostRatedMoviesReport> MostRatedMoviesReports { get; set; }
         public DbSet<MostScreenedMoviesReport> MoviesWithMostScreeningsReports { get; set; }
         public DbSet<MovieWithMostSoldTicketsReport> MoviesWithMostSoldTicketsReports { get; set; }

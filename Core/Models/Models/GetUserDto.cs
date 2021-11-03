@@ -10,7 +10,6 @@ namespace Core.Models.Models
     {
         public string Token { get; set; }
         public string Username { get; set; }
-   
         public bool Admin { get; set; }
     }
 }

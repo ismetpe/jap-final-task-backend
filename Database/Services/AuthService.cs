@@ -53,10 +53,10 @@ namespace Database.Services
         {
             if (await UserExistsAsync(user.Username))
             {
-             
+
                 return new ServiceResponse<int> { Message = "User already exists." };
             }
-            
+
             CreatePasswordHash(password, out byte[] passwordHash, out byte[] passwordSalt);
 
             user.Hash = passwordHash;
