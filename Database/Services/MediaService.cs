@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Common;
+using Core.Entities;
 using Core.Interfaces;
 using Core.Models.Models;
 using Core.Models.Requests;
@@ -107,6 +108,50 @@ namespace Database.Services
                                        .Include(x => x.Actors)
                                        .AsSplitQuery()
                                        .Select(x => _mapper.Map<GetMediaDto>(x)).ToListAsync();
+        }
+
+
+        public async Task<int> AddMovieAsync(AddMovieDto movie)
+        {
+            var addMovie = new Media
+            {
+                Title = movie.Title,
+                Description = movie.Description,
+                ReleaseYear = movie.Release_year,
+                ImgUrl = movie.img_url,
+                MediaType = movie.MediaType
+
+            };
+
+            await _context.Medias.AddAsync(addMovie);
+            await _context.SaveChangesAsync();
+
+            return _context.Medias.Max(x => x.Id);
+        }
+
+        public async Task<int> EditMovieAsync(EditMovieDto movie, int Id)
+        {
+            Media m = _context.Medias.Find(Id);
+
+            if (!string.IsNullOrEmpty(movie.Description))
+            {
+                m.Description = movie.Description;
+            }
+            if (!string.IsNullOrEmpty(movie.Title))
+            {
+                m.Title = movie.Title;
+            }
+            if (!string.IsNullOrEmpty(movie.img_url))
+            {
+                m.ImgUrl = movie.img_url;
+            }
+            if (!string.IsNullOrEmpty(movie.ReleaseYear))
+            {
+                m.ReleaseYear = movie.ReleaseYear;
+            }
+            await _context.SaveChangesAsync();
+
+            return _context.Screenings.Max(x => x.Id);
         }
     }
 }
