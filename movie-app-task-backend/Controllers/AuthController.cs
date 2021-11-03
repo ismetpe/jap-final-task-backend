@@ -30,7 +30,7 @@ namespace movie_app_task_backend.Controllers
 
             };
 
-            var response = await _authService.Register(user, request.Password);
+            var response = await _authService.RegisterAsync(user, request.Password);
 
             return (response.Success) ? Ok(response) : BadRequest(response);
         }
@@ -38,7 +38,7 @@ namespace movie_app_task_backend.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<ServiceResponse<string>>> Login(LoginRequest request)
         {
-            var response = await _authService.Login(request.Username, request.Password);
+            var response = await _authService.LoginAsync(request.Username, request.Password);
 
             return (response.Success) ? Ok(response) : BadRequest(response);
         }

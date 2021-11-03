@@ -10,6 +10,6 @@ namespace Core.Interfaces
 {
     public interface IMediaService
     {
-        Task<List<GetMediaDto>> GetMedia(GetMediaRequestDto request);
+        Task<List<GetMediaDto>> GetMediaAsync(GetMediaRequestDto request);
     }
 }

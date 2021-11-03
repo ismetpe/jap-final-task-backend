@@ -10,6 +10,6 @@ namespace Core.Interfaces
 {
    public interface IActorsService
     {
-        Task<List<GetActorDto>> GetActors();
+        Task<List<GetActorDto>> GetActorsAsync();
     }
 }

@@ -22,12 +22,12 @@ namespace movie_app_task_backend.Controllers
         [HttpPost("buy_ticket")]
         public async Task<ActionResult<int>> BuyTicket([FromBody] AddPurchasedTicketDto req)
         {
-            return Ok(await _screeningsService.BuyTickets(req));
+            return Ok(await _screeningsService.BuyTicketsAsync(req));
         }
         [HttpGet("screenings_by_movie")]
         public async Task<ActionResult<List<GetScreeningDto>>> GetScreeningsbyMovie(int id)
         {
-            return Ok(await _screeningsService.GetScreeningsByMovie(id));
+            return Ok(await _screeningsService.GetScreeningsByMovieAsync(id));
         }
     }
 }

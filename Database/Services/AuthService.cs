@@ -25,7 +25,7 @@ namespace Database.Services
             _context = context;
         }
 
-        public async Task<ServiceResponse<string>> Login(string username, string password)
+        public async Task<ServiceResponse<string>> LoginAsync(string username, string password)
         {
             ServiceResponse<string> response = new();
             User user = await _context.Users.FirstOrDefaultAsync(x => x.Username.ToUpper().Equals(username.ToUpper()));
@@ -49,9 +49,9 @@ namespace Database.Services
 
         }
 
-        public async Task<ServiceResponse<int>> Register(User user, string password)
+        public async Task<ServiceResponse<int>> RegisterAsync(User user, string password)
         {
-            if (await UserExists(user.Username))
+            if (await UserExistsAsync(user.Username))
             {
              
                 return new ServiceResponse<int> { Message = "User already exists." };
@@ -69,7 +69,7 @@ namespace Database.Services
             return new ServiceResponse<int> { Data = user.Id, Message = "Registered successfully!", Success = true };
         }
 
-        public async Task<bool> UserExists(string Username) => await _context.Users.AnyAsync(x => x.Username.ToUpper() == Username.ToUpper());
+        public async Task<bool> UserExistsAsync(string Username) => await _context.Users.AnyAsync(x => x.Username.ToUpper() == Username.ToUpper());
 
         public static void CreatePasswordHash(string password, out byte[] passwordHash, out byte[] passwordSalt)
         {

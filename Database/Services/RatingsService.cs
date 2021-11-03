@@ -19,7 +19,7 @@ namespace Database.Services
         {
             _context = context;
         }
-        public async Task<int> AddRating(float rating, int MediaId)
+        public async Task<int> AddRatingAsync(float rating, int MediaId)
         {
             var addRating = new Rating
             {

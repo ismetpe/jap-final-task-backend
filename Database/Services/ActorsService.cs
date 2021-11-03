@@ -22,7 +22,7 @@ namespace Database.Services
             _context = context;
         }
 
-        public async Task<List<GetActorDto>> GetActors()
+        public async Task<List<GetActorDto>> GetActorsAsync()
         {
             return await _context.Actors.Select(x => _mapper.Map<GetActorDto>(x)).ToListAsync();
         }

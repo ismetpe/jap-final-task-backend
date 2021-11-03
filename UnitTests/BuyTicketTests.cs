@@ -122,7 +122,7 @@ namespace UnitTests
 
             };
 
-            var result = await screeningsService.BuyTickets(request);
+            var result = await screeningsService.BuyTicketsAsync(request);
 
             Console.WriteLine(result);
 
@@ -148,7 +148,7 @@ namespace UnitTests
 
             };
 
-            var result = await screeningsService.BuyTickets(request);
+            var result = await screeningsService.BuyTicketsAsync(request);
             return result;
         }
 

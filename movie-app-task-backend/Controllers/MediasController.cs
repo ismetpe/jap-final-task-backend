@@ -26,7 +26,7 @@ namespace movie_app_task_backend.Controllers
         [HttpGet("get_media")]
         public async Task<ActionResult<List<GetMediaDto>>> GetAllMovies([FromQuery] GetMediaRequestDto req)
         {
-            return Ok(await _mediaService.GetMedia(req));
+            return Ok(await _mediaService.GetMediaAsync(req));
         }
     }
 }

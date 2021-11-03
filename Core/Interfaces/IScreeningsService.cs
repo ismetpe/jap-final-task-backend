@@ -9,8 +9,8 @@ namespace Core.Interfaces
 {
    public interface IScreeningsService
     {
-        Task<List<GetScreeningDto>> GetScreenings();
-        Task<int> BuyTickets(AddPurchasedTicketDto request);
-        Task<List<GetScreeningDto>> GetScreeningsByMovie(int id);
+        Task<List<GetScreeningDto>> GetScreeningsAsync();
+        Task<int> BuyTicketsAsync(AddPurchasedTicketDto request);
+        Task<List<GetScreeningDto>> GetScreeningsByMovieAsync(int id);
     }
 }

@@ -24,7 +24,7 @@ namespace Database.Services
             _context = context;
         }
 
-        private async Task<List<GetMediaDto>> SearchFilter(string value)
+        private async Task<List<GetMediaDto>> SearchFilterAsync(string value)
         {
 
             if (value.ToUpper().Contains("STARS"))
@@ -64,7 +64,7 @@ namespace Database.Services
 
 
         }
-        private async Task<List<GetMediaDto>> TypeFilter(MediaType? type, int pagination)
+        private async Task<List<GetMediaDto>> TypeFilterAsync(MediaType? type, int pagination)
         {
 
 
@@ -79,16 +79,16 @@ namespace Database.Services
 
 
         }
-        public async Task<List<GetMediaDto>> GetMedia(GetMediaRequestDto request)
+        public async Task<List<GetMediaDto>> GetMediaAsync(GetMediaRequestDto request)
         {
 
             if (!string.IsNullOrEmpty(request.SearchTerm))
             {
-                return await SearchFilter(request.SearchTerm);
+                return await SearchFilterAsync(request.SearchTerm);
             }
             if (request.Type != null)
             {
-                return await TypeFilter(request.Type, request.Pagination);
+                return await TypeFilterAsync(request.Type, request.Pagination);
             }
             if (request.GetMediaId != null)
             {

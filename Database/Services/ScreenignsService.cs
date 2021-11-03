@@ -22,16 +22,16 @@ namespace Database.Services
             _mapper = mapper;
         }
 
-        public async Task<List<GetScreeningDto>> GetScreenings()
+        public async Task<List<GetScreeningDto>> GetScreeningsAsync()
         {
             return await _context.Screenings.Include(x => x.Tickets).AsSplitQuery().Select(x => _mapper.Map<GetScreeningDto>(x)).ToListAsync();
 
         }
 
-        public async Task<int> BuyTickets(AddPurchasedTicketDto request)
+        public async Task<int> BuyTicketsAsync(AddPurchasedTicketDto request)
         {
 
-            var ListOfScreenings = await GetScreenings();
+            var ListOfScreenings = await GetScreeningsAsync();
 
             var screening = ListOfScreenings.Find(x => x.Id == request.ScreeningID);
 
@@ -57,7 +57,7 @@ namespace Database.Services
             return id;
         }
 
-       public async Task<List<GetScreeningDto>> GetScreeningsByMovie(int id)
+       public async Task<List<GetScreeningDto>> GetScreeningsByMovieAsync(int id)
         {
             return await _context.Screenings.Where(x => x.MediaId == id).Select(x => _mapper.Map<GetScreeningDto>(x)).ToListAsync();
         }

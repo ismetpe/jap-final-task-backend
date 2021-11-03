@@ -24,7 +24,7 @@ namespace movie_app_task_backend.Controllers
         [HttpPost("add")]
         public async Task<IActionResult> AddRating(AddRatingDto addRating)
         {
-            var response = await _ratingService.AddRating(addRating.RatingValue, addRating.MediaId);
+            var response = await _ratingService.AddRatingAsync(addRating.RatingValue, addRating.MediaId);
             
             return Ok(response);
         }
