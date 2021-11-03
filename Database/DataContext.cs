@@ -8,10 +8,19 @@ namespace Database
 {
     public class DataContext : DbContext
     {
+
+        public DataContext() : base()
+        {
+
+        }
+ 
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)=> options.UseSqlServer("Data Source=movie-app-task.db");
 
         public DbSet<Media> Medias { get; set; }
         public DbSet<Actor> Actors { get; set; }
