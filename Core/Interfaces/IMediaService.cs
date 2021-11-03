@@ -12,5 +12,8 @@ namespace Core.Interfaces
     {
         Task<List<GetMediaDto>> GetMediaAsync(GetMediaRequestDto request);
         Task<int> AddMovieAsync(AddMovieDto movie);
+        Task<int> EditMovieAsync(EditMovieDto movie, int Id);
+
+
     }
 }
