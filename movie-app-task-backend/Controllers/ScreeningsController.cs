@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using Core.Entities;
+using Core.Interfaces;
 using Core.Models.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,5 +30,13 @@ namespace movie_app_task_backend.Controllers
         {
             return Ok(await _screeningsService.GetScreeningsByMovieAsync(id));
         }
+
+        [HttpPost("add_screening")]
+        public async Task<ActionResult<IEnumerable<Screening>>> AddScreening(AddScreeningDto request)
+        {
+            return Ok(await _screeningsService.AddScreeningsAsync(request));
+        }
+
+
     }
 }

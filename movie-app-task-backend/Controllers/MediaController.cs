@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Core.Entities;
 using Core.Interfaces;
 using Core.Models.Models;
 using Core.Models.Requests;
@@ -13,12 +14,12 @@ namespace movie_app_task_backend.Controllers
 {
    [ApiController]
     [Route("api/media")]
-    public class VideosController : ControllerBase
+    public class MediaController : ControllerBase
     {
 
         private readonly IMediaService _mediaService;
 
-        public VideosController(IMediaService mediaService)
+        public MediaController(IMediaService mediaService)
         {
             _mediaService = mediaService;
         }
@@ -28,5 +29,17 @@ namespace movie_app_task_backend.Controllers
         {
             return Ok(await _mediaService.GetMediaAsync(req));
         }
+
+        [HttpPost("add_movie")]
+        public async Task<ActionResult<IEnumerable<Media>>> AddMovie(AddMovieDto request)
+        {
+            return Ok(await _mediaService.AddMovieAsync(request));
+        }
+
+        [HttpPost("edit_movie")]
+        public async Task<ActionResult<IEnumerable<Media>>> EditMovie(EditMovieDto request, int id)
+        {
+            return Ok(await _mediaService.EditMovieAsync(request, id));
+        }
+
     }
-}

@@ -11,5 +11,6 @@ namespace Core.Interfaces
     public interface IMediaService
     {
         Task<List<GetMediaDto>> GetMediaAsync(GetMediaRequestDto request);
+        Task<int> AddMovieAsync(AddMovieDto movie);
     }
 }
