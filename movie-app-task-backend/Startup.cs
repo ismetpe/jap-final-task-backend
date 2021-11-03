@@ -45,19 +45,7 @@ namespace movie_app_task_backend
             AddSwager.AddSwaggerConfig(ref services);
             AddScoped.AddScopedConfig(ref services);
 
-                services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII
-                            .GetBytes(_configuration.GetSection("AppSettings:Token").Value)),
-                        ValidateIssuer = false,
-                        ValidateAudience = false
-                    };
-                });
-           
+            AddAuth.AddAuthConfig(ref services, _configuration);
             services.AddCors();
         }
 
@@ -70,13 +58,13 @@ namespace movie_app_task_backend
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "movie_app_task_backend v1"));
             }
-              app.UseCors(
-                 options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader()
-                ) ;
+            app.UseCors(
+               options => options.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader()
+              );
             app.UseHttpsRedirection();
 
             app.UseRouting();
-            
+
             app.UseAuthentication();
 
             app.UseAuthorization();
